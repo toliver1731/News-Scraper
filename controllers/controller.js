@@ -2,8 +2,8 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
-var request = require('request'); // for web-scraping
-var cheerio = require('cheerio'); // for web-scraping
+var request = require('request'); 
+var cheerio = require('cheerio'); 
 
 // Import the Comment and Article models
 var Comment = require('../models/Comment.js');
@@ -57,7 +57,7 @@ router.get('/scrape', function(req, res) {
     var titlesArray = [];
 
     // Now, grab every everything with a class of "inner" with each "article" tag
-    $('article .inner').each(function(i, element) {
+    $('article .featured-headline').each(function(i, element) {
 
         // Create an empty result object
         var result = {};

@@ -30,9 +30,8 @@ if(process.env.NODE_ENV == 'production'){
   mongoose.connect('');
 }
 else{
-  mongoose.connect('mongodb://localhost/news-scraper');
-  // YOU CAN IGNORE THE CONNECTION URL BELOW (LINE 41) THAT WAS JUST FOR DELETING STUFF ON A RE-DEPLOYMENT
-  //mongoose.connect('');
+  mongoose.connect('mongodb://localhost/news');
+  
 }
 var db = mongoose.connection;
 
@@ -49,14 +48,7 @@ db.once('open', function() {
 // Import the Comment and Article models
 var Comment = require('./models/Comment.js');
 var Article = require('./models/Article.js');
-// ---------------------------------------------------------------------------------------------------------------
 
-// DROP DATABASE (FOR MY PERSONAL REFERENCE ONLY - YOU CAN IGNORE)
-// Article.remove({}, function(err) { 
-//    console.log('collection removed') 
-// });
-
-// Import Routes/Controller
 var router = require('./controllers/controller.js');
 app.use('/', router);
 
