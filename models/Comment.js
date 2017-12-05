@@ -1,26 +1,30 @@
-// Require Mongoose
-var mongoose = require('mongoose');
-
-// Create a Schema Class
+var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-// Create Comment Schema
-var CommentSchema = new Schema({
-
-  // Author's Name
-  author: {
-    type: String
+var CommentSchema = new mongoose.Schema({
+  textContent: {
+    type: String,
+    trim: true,
+    required: true
   },
-  // Comment Content
-  content: {
-    type: String
+  article: {
+    type: Schema.Types.ObjectId,
+    ref: "Article",
+    required:true
+  },
+
+  user: {
+    type: String,
+    trim: true,
+    required:true
   }
-  
+  // user: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: "User",
+  //   required:true
+  // }
 });
 
-
-// Create the Comment model with Mongoose
 var Comment = mongoose.model('Comment', CommentSchema);
 
-// Export the Model
 module.exports = Comment;
