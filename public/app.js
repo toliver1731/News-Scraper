@@ -1,9 +1,9 @@
 $(document).ready(function(){
-    //TODO: add a loading message that disappears when articles arrive
+    
     $.getJSON("/scrape", function(data) {
-        // For each one
+       
         for (var i = 0; i < data.length; i++) {
-            // If there are comments, create a div with them to append later
+            
             var commentsDiv = $('<div>').addClass("view-comments");
             if(data[i].comments.length > 0){
                 commentsDiv.append($('<button>').addClass("comment-view-btn btn").text("View comments"));
@@ -53,7 +53,7 @@ $(document).ready(function(){
             }
         })
         .done(function(data) {
-            //TODO: hide the comment submission
+            
             form.parent().children(".comment-message").empty();
             if(typeof(data)==="object"){
                 form.parent().children(".comment-message").append($("<p>").text("Thanks for submitting your comment! It's been processed successfully."))

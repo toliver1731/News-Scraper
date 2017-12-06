@@ -2,9 +2,9 @@ var express = require("express");
 var request = require("request");
 var cheerio = require("cheerio");
 var bodyParser = require("body-parser");
-var mongojs = require("mongojs");
+var mongoose = require("mongoose");
 var path = require("path");
-// mongoose.Promise = require('bluebird');
+mongoose.Promise = require('bluebird');
 
 // Initialize Express
 var app = express();
